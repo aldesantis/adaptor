@@ -104,10 +104,8 @@ end
 ```
 
 Note that `#load_adaptor` will return `nil` when it cannot find any adaptors, while `#load_adaptors`
-will return an empty array.
-
-If you prefer, you can also use `#load_adaptor!` and `#load_adaptors!` respectively to raise an 
-`Adaptor::NoAdaptorError` when no adaptor can be found.
+will return an empty array. If you prefer, you can also use `#load_adaptor!` and `#load_adaptors!` 
+respectively to raise an `Adaptor::NoAdaptorError` when no adaptor can be found.
 
 ## Contributing
 
