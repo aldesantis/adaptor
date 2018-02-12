@@ -1,9 +1,9 @@
 # Adaptor
 
-[![Build Status](https://travis-ci.org/aldesantis/adaptor.svg?branch=master)](https://travis-ci.org/aldesantis/adaptor)
-[![Dependency Status](https://gemnasium.com/badges/github.com/aldesantis/adaptor.svg)](https://gemnasium.com/github.com/aldesantis/adaptor)
-[![Coverage Status](https://coveralls.io/repos/github/aldesantis/adaptor/badge.svg?branch=master)](https://coveralls.io/github/aldesantis/adaptor?branch=master)
-[![Maintainability](https://api.codeclimate.com/v1/badges/e51e8d7489eb72ab97ba/maintainability)](https://codeclimate.com/github/aldesantis/adaptor/maintainability)
+[![Build Status](https://travis-ci.org/aldesantis/adaptor-rb.svg?branch=master)](https://travis-ci.org/aldesantis/adaptor-rb)
+[![Dependency Status](https://gemnasium.com/badges/github.com/aldesantis/adaptor-rb.svg)](https://gemnasium.com/github.com/aldesantis/adaptor-rb)
+[![Coverage Status](https://coveralls.io/repos/github/aldesantis/adaptor-rb/badge.svg?branch=master)](https://coveralls.io/github/aldesantis/adaptor-rb?branch=master)
+[![Maintainability](https://api.codeclimate.com/v1/badges/e51e8d7489eb72ab97ba/maintainability)](https://codeclimate.com/github/aldesantis/adaptor-rb/maintainability)
 
 Adaptor makes it easy to implement the [Adapter pattern](https://en.wikipedia.org/wiki/Adapter_pattern) in Ruby.
 
@@ -90,7 +90,7 @@ end
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/aldesantis/adaptor. This 
+Bug reports and pull requests are welcome on GitHub at https://github.com/aldesantis/adaptor-rb. This 
 project is intended to be a safe, welcoming space for collaboration, and contributors are expected 
 to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
