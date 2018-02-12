@@ -47,8 +47,8 @@ DEPENDENCIES
   bundler (~> 1.16)
   rake (~> 10.0)
   rspec (~> 3.0)
-  rubocop
-  rubocop-rspec
+  rubocop (~> 0.52)
+  rubocop-rspec (~> 1.22)
 
 BUNDLED WITH
    1.16.1
