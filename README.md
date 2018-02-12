@@ -61,12 +61,14 @@ module DocumentProcessor
   register Pdf, Word
 end
 
+# You can use #load_adaptor! if you want to raise an Adaptor::NoAdaptorError 
+# when no adaptors are found. 
 thumbnail = DocumentProcessor.load_adaptor(object).build_thumbnail
 ```
 
 ### Multiple-Adaptor Mode
 
-Or, if it suits your use case, you can use it in multiple-adaptor mode:
+If it suits your use case, you can use multiple-adaptor mode:
 
 ```ruby
 module NotificationProcessor
@@ -108,14 +110,10 @@ module MultipleAdaptorLoader
   register Email, Sms
 end
 
+# You can use #load_adaptors! if you want to raise an Adaptor::NoAdaptorError 
+# when no adaptors are found. 
 NotificationProcessor.load_adaptors(notifications).each(&:deliver)
 ```
-
-### Error Management
-
-Note that `#load_adaptor` will return `nil` when it cannot find any adaptors, while `#load_adaptors`
-will return an empty array. If you prefer, you can use their bang counterparts (`#load_adapter!` and
-`#load_adapters!`) to raise an `Adaptor::NoAdaptorError` when no adaptor can be found.
 
 ## Contributing
 
