@@ -25,6 +25,8 @@ Or install it yourself as:
 
 ## Usage
 
+### Single-Adaptor Mode
+
 You can use the library in single-adaptor mode:
 
 ```ruby
@@ -61,6 +63,8 @@ end
 
 thumbnail = DocumentProcessor.load_adaptor(object).build_thumbnail
 ```
+
+### Multiple-Adaptor Mode
 
 Or, if it suits your use case, you can use it in multiple-adaptor mode:
 
@@ -107,9 +111,11 @@ end
 NotificationProcessor.load_adaptors(notifications).each(&:deliver)
 ```
 
+### Error Management
+
 Note that `#load_adaptor` will return `nil` when it cannot find any adaptors, while `#load_adaptors`
-will return an empty array. If you prefer, you can also use `#load_adaptor!` and `#load_adaptors!` 
-respectively to raise an `Adaptor::NoAdaptorError` when no adaptor can be found.
+will return an empty array. If you prefer, you can use their bang counterparts (`#load_adapter!` and
+`#load_adapters!`) to raise an `Adaptor::NoAdaptorError` when no adaptor can be found.
 
 ## Contributing
 
