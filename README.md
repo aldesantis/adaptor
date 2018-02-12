@@ -20,16 +20,27 @@ Or install it yourself as:
 
 ## Usage
 
+Single adaptor:
+
 ```ruby
 module Pagination
-  extend Adaptor::Loader
+  include Adaptor::Loader
+  register WillPaginate, Kaminari
 end
 
 module Pagination
+  class Kaminari
+    include Adaptor
+        
+    def self.supports?(object)
+      # return whether this adaptor supports the object
+    end
+  end
+  
   class WillPaginate 
-    extend Adaptor
+    include Adaptor
     
-    def supports?(object)
+    def self.supports?(object)
       # return whether this adaptor supports the object
     end
   end
@@ -37,6 +48,39 @@ end
 
 adaptor = Pagination.load_adaptor(object)
 adaptor.some_method
+```
+
+Multiple adaptors:
+
+```ruby
+module ContentProcessor
+  include Adaptor::Loader
+  register EscapeHtml, SomeOtherFilter
+end
+
+module ContentProcessor
+  class EscapeHtml
+    include Adaptor
+        
+    def self.supports?(object)
+      # return whether this adaptor supports the object
+    end
+  end
+  
+  class SomeOtherFilter 
+    include Adaptor
+    
+    def self.supports?(object)
+      # return whether this adaptor supports the object
+    end
+  end
+end
+
+adaptors = Pagination.load_adaptors(object)
+
+adaptors.each do |adaptor|
+  adaptor.do_something
+end
 ```
 
 ## Contributing
