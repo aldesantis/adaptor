@@ -25,7 +25,7 @@ Or install it yourself as:
 
 ## Usage
 
-Single adaptor:
+You can use the library in single-adaptor mode:
 
 ```ruby
 module Pagination
@@ -55,38 +55,59 @@ adaptor = Pagination.load_adaptor(object)
 adaptor.some_method
 ```
 
-Multiple adaptors:
+Or, if it suits your use-case, you can use it in multiple-adaptor mode:
 
 ```ruby
-module ContentProcessor
+module MultipleAdaptorLoader
   include Adaptor::Loader
   register EscapeHtml, SomeOtherFilter
 end
 
-module ContentProcessor
-  class EscapeHtml
+module MultipleAdaptorLoader
+  class SomeAdaptor
     include Adaptor
         
     def self.supports?(object)
       # return whether this adaptor supports the object
     end
+    
+    def initialize(object)
+      @object = object
+    end
+    
+    def do_something
+      # ...
+    end
   end
   
-  class SomeOtherFilter 
+  class SomeAdaptor 
     include Adaptor
     
     def self.supports?(object)
       # return whether this adaptor supports the object
     end
+    
+    def initialize(object)
+      @object = object
+    end
+    
+    def do_something
+      # ...
+    end
   end
 end
 
-adaptors = Pagination.load_adaptors(object)
-
+adaptors = MultipleAdaptorLoader.load_adaptors(object)
 adaptors.each do |adaptor|
   adaptor.do_something
 end
 ```
+
+Note that `#load_adaptor` will return `nil` when it cannot find any adaptors, while `#load_adaptors`
+will return an empty array.
+
+If you prefer, you can also use `#load_adaptor!` and `#load_adaptors!` respectively to raise an 
+`Adaptor::NoAdaptorError` when no adaptor can be found.
 
 ## Contributing
 
