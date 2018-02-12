@@ -61,8 +61,8 @@ module DocumentProcessor
   register Pdf, Word
 end
 
-# You can use #load_adaptor! if you want to raise an Adaptor::NoAdaptorError 
-# when no adaptors are found. 
+# You can use #load_adaptor! if you want to raise an 
+# Adaptor::NoAdaptorError when no adaptor is found. 
 thumbnail = DocumentProcessor.load_adaptor(object).build_thumbnail
 ```
 
@@ -110,8 +110,8 @@ module MultipleAdaptorLoader
   register Email, Sms
 end
 
-# You can use #load_adaptors! if you want to raise an Adaptor::NoAdaptorError 
-# when no adaptors are found. 
+# You can use #load_adaptors! if you want to raise an 
+# Adaptor::NoAdaptorError when no adaptors are found. 
 NotificationProcessor.load_adaptors(notifications).each(&:deliver)
 ```
 
