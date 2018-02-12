@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Adaptor
   module Loader
     def self.included(klass)

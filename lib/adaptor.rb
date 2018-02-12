@@ -1,6 +1,8 @@
-require "adaptor/version"
-require "adaptor/loader"
-require "adaptor/errors"
+# frozen_string_literal: true
+
+require 'adaptor/version'
+require 'adaptor/loader'
+require 'adaptor/errors'
 
 module Adaptor
   def self.included(klass)

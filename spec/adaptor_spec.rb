@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Adaptor do
   subject { AdaptorTest::Loader }
 
@@ -5,10 +7,10 @@ RSpec.describe Adaptor do
     it 'loads the appropriate adaptor' do
       expect([
         subject.load_adaptor(1),
-        subject.load_adaptor(2),
+        subject.load_adaptor(2)
       ]).to match([
         an_instance_of(AdaptorTest::AdaptorOne),
-        an_instance_of(AdaptorTest::AdaptorTwo),
+        an_instance_of(AdaptorTest::AdaptorTwo)
       ])
     end
 
@@ -21,7 +23,7 @@ RSpec.describe Adaptor do
     it 'loads the appropriate adaptor' do
       expect(subject.load_adaptors(2)).to match([
         an_instance_of(AdaptorTest::AdaptorTwo),
-        an_instance_of(AdaptorTest::AdaptorMultipleOfTwo),
+        an_instance_of(AdaptorTest::AdaptorMultipleOfTwo)
       ])
     end
 
@@ -34,7 +36,7 @@ RSpec.describe Adaptor do
     it 'loads the appropriate adaptors' do
       expect(subject.load_adaptors!(2)).to match([
         an_instance_of(AdaptorTest::AdaptorTwo),
-        an_instance_of(AdaptorTest::AdaptorMultipleOfTwo),
+        an_instance_of(AdaptorTest::AdaptorMultipleOfTwo)
       ])
     end
 
