@@ -58,49 +58,46 @@ adaptor.some_method
 Or, if it suits your use-case, you can use it in multiple-adaptor mode:
 
 ```ruby
-module MultipleAdaptorLoader
-  include Adaptor::Loader
-  register EscapeHtml, SomeOtherFilter
-end
-
-module MultipleAdaptorLoader
-  class SomeAdaptor
+module NotificationProcessor
+  class Email
     include Adaptor
         
-    def self.supports?(object)
-      # return whether this adaptor supports the object
+    def self.supports?(notification)
+      notification.user.email.present?
     end
     
-    def initialize(object)
-      @object = object
+    def initialize(notification)
+      @notification = notification
     end
     
-    def do_something
+    def deliver
       # ...
     end
   end
   
-  class SomeAdaptor 
+  class Sms 
     include Adaptor
     
-    def self.supports?(object)
-      # return whether this adaptor supports the object
+    def self.supports?(notification)
+      notification.user.phone.present?
     end
     
-    def initialize(object)
-      @object = object
+    def initialize(notification)
+      @notification = notification
     end
     
-    def do_something
+    def deliver
       # ...
     end
   end
 end
 
-adaptors = MultipleAdaptorLoader.load_adaptors(object)
-adaptors.each do |adaptor|
-  adaptor.do_something
+module MultipleAdaptorLoader
+  include Adaptor::Loader
+  register Email, Sms
 end
+
+NotificationProcessor.load_adaptors(notifications).each(&:deliver)
 ```
 
 Note that `#load_adaptor` will return `nil` when it cannot find any adaptors, while `#load_adaptors`
