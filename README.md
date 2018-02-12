@@ -1,5 +1,10 @@
 # Adaptor
 
+[![Build Status](https://travis-ci.org/aldesantis/adaptor.svg?branch=master)](https://travis-ci.org/aldesantis/adaptor)
+[![Dependency Status](https://gemnasium.com/badges/github.com/aldesantis/adaptor.svg)](https://gemnasium.com/github.com/aldesantis/adaptor)
+[![Coverage Status](https://coveralls.io/repos/github/aldesantis/adaptor/badge.svg?branch=master)](https://coveralls.io/github/aldesantis/adaptor?branch=master)
+[![Maintainability](https://api.codeclimate.com/v1/badges/e51e8d7489eb72ab97ba/maintainability)](https://codeclimate.com/github/aldesantis/adaptor/maintainability)
+
 Adaptor makes it easy to implement the [Adapter pattern](https://en.wikipedia.org/wiki/Adapter_pattern) in Ruby.
 
 ## Installation
