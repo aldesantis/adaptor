@@ -28,34 +28,41 @@ Or install it yourself as:
 You can use the library in single-adaptor mode:
 
 ```ruby
-module Pagination
-  include Adaptor::Loader
-  register WillPaginate, Kaminari
-end
-
-module Pagination
-  class Kaminari
+module DocumentProcessor
+  class Pdf
     include Adaptor
         
-    def self.supports?(object)
-      # return whether this adaptor supports the object
+    def self.supports?(document)
+      document.mime_type == 'application/pdf'
+    end
+    
+    def build_thumbnail
+      # ...
     end
   end
   
-  class WillPaginate 
+  class Word 
     include Adaptor
     
-    def self.supports?(object)
-      # return whether this adaptor supports the object
+    def self.supports?(document)
+      document.mime_type == 'application/msword'
+    end
+    
+    def build_thumbnail
+      # ...
     end
   end
 end
 
-adaptor = Pagination.load_adaptor(object)
-adaptor.some_method
+module DocumentProcessor
+  include Adaptor::Loader
+  register Pdf, Word
+end
+
+thumbnail = DocumentProcessor.load_adaptor(object).build_thumbnail
 ```
 
-Or, if it suits your use-case, you can use it in multiple-adaptor mode:
+Or, if it suits your use case, you can use it in multiple-adaptor mode:
 
 ```ruby
 module NotificationProcessor
