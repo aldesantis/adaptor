@@ -132,5 +132,4 @@ lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/
 
 ## Todos
 
-- [ ] Write API documentation
 - [ ] Improve unit tests
