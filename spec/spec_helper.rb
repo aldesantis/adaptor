@@ -16,4 +16,4 @@ RSpec.configure do |config|
   end
 end
 
-Dir[File.join(File.dirname(__FILE__) + '/support/**/*.rb')].each { |f| puts f; require f }
+Dir[File.join(File.dirname(__FILE__) + '/support/**/*.rb')].each { |f| require f }
