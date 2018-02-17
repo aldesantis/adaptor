@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['desa.alessandro@gmail.com']
 
   spec.summary       = 'Adaptor makes it easy to implement the Adapter pattern in Ruby.'
-  spec.homepage      = 'https://github.com/aldesantis/adaptor.rb'
+  spec.homepage      = 'https://github.com/aldesantis/adaptor'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
