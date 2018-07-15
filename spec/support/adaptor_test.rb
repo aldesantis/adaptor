@@ -6,7 +6,7 @@ module AdaptorTest
       val == 1
     end
 
-    def initialize(_val)
+    def initialize(_val, _options)
     end
   end
 
@@ -17,7 +17,7 @@ module AdaptorTest
       val == 2
     end
 
-    def initialize(_val)
+    def initialize(_val, _options)
     end
   end
 
@@ -28,7 +28,7 @@ module AdaptorTest
       (val % 2).zero?
     end
 
-    def initialize(_val)
+    def initialize(_val, _options)
     end
   end
 

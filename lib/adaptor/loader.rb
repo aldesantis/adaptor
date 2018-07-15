@@ -90,7 +90,7 @@ module Adaptor
 
       def cut_args(args, method:)
         arity = method.arity
-        arity.negative? ? args : args[0..arity]
+        arity.negative? ? args : args[0..(arity - 1)]
       end
     end
   end

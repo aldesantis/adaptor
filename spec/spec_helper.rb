@@ -2,6 +2,7 @@ require 'coveralls'
 Coveralls.wear!
 
 require "bundler/setup"
+require 'pry'
 require "adaptor"
 
 RSpec.configure do |config|
